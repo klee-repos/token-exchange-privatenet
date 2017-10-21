@@ -1,5 +1,6 @@
 # Ethereum Token Exchange Demo (Source)
 
+
 ### This demo provides examples of the following:
 * Create an ERC20 Token (https://github.com/ethereum/EIPs/issues/20)
 * Create an Token Exchange on the Ethereum blockchain to allow for the exchange of an ERC20 token for Ether
@@ -10,11 +11,15 @@
 * Metamask, Mist, or other Dapp-enabled browser.
 
 
-### Token Trading
+
+### trading.html
 ![alt text](https://github.com/lynkr/token-exchange-privatenet/blob/master/img/trading.png "Token Trading Screenshot")
 
-### Exchange Account
+
+### index.html
 ![alt text](https://github.com/lynkr/token-exchange-privatenet/blob/master/img/exchangeManagement.png "Exchange Account Screenshot")
 
-### Manage Your Token
+
+### managetoken.html
 ![alt text](https://github.com/lynkr/token-exchange-privatenet/blob/master/img/tokenManagement.png "Manage Your Token Screenshot")
+
