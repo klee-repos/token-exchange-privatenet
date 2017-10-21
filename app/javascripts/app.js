@@ -48,6 +48,7 @@ window.App = {
     status.innerHTML = message;
   },
 
+  // initiatization for index.html
   initIndex: function() {
     App.updateBalanceExchange();
     App.printImportantInformation();
@@ -55,6 +56,7 @@ window.App = {
     App.watchWithdrawEvents();
   },
 
+  // initialization for trading.html
   initTrading: function() {
     App.updateBalanceExchange();
     App.updateOrderBook();
@@ -63,6 +65,7 @@ window.App = {
     App.watchSellToken();
   },
 
+  // initializaiton for managetoken.html
   initManageToken: function() {
     App.updateTokenBalance();
     App.watchTokenEvents();
@@ -70,6 +73,7 @@ window.App = {
     App.printImportantInformation();
   },
 
+  // update token and ether balance on index.html and trading.html
   updateBalanceExchange: function() {
     var self = this;
     var exchangeInstance;
@@ -89,6 +93,7 @@ window.App = {
     })
   },
 
+  // update token balance on managetoken.hmtl
   updateTokenBalance: function() {
     var self = this;
     var tokenInstance;
@@ -104,6 +109,7 @@ window.App = {
     })
   },
 
+  // display token events on managetoken.html
   watchTokenEvents: function() {
     var self = this;
     var tokenInstance;
@@ -141,6 +147,7 @@ window.App = {
     })
   },
 
+  // display token create events on managetoken.html
   watchTokenCreateEvent: function() {
     var exchangeInstance;
     ExchangeContract.deployed().then(function(instance) {
@@ -177,6 +184,7 @@ window.App = {
     })
   },
 
+  // display deposit events on trading.html
   watchDepositEvents: function() {
     var exchangeInstance;
     ExchangeContract.deployed().then(function(instance) {
@@ -235,6 +243,7 @@ window.App = {
     })
   },
 
+  // display withdraw events on trading.html
   watchWithdrawEvents: function() {
     var exchangeInstance;
     ExchangeContract.deployed().then(function(instance) {
@@ -293,6 +302,7 @@ window.App = {
     })
   },
 
+  // display buy token events on trading.html
   watchBuyToken: function() {
     var exchangeInstance;
     ExchangeContract.deployed().then(function(instance) {
@@ -350,6 +360,7 @@ window.App = {
     })
   },
 
+  // display sell token events on trading.html
   watchSellToken: function() {
     var exchangeInstance;
     ExchangeContract.deployed().then(function(instance) {
@@ -407,6 +418,7 @@ window.App = {
     })
   },
 
+  // display FixedSupplyToken and Exchange contract address and account ether balance
   printImportantInformation: function() {
     ExchangeContract.deployed().then(function(instance) {
       var divAddress = document.createElement("div");
@@ -438,6 +450,7 @@ window.App = {
 
   },
 
+  // send token to an address on managetoken.html
   sendToken: function() {
     var amount = parseInt(document.getElementById("inputAmountSendToken").value);
     var receiver = document.getElementById("inputRecipientSendToken").value;
@@ -457,6 +470,7 @@ window.App = {
     })
   }, 
 
+  // allow an address to receive tokens from FixedSupplyToken on managetoken.html
   allowanceToken: function() {
     var amount = parseInt(document.getElementById("inputAmountAllowToken").value);
     var receiver = document.getElementById("inputRecipientAllowToken").value;
@@ -475,6 +489,7 @@ window.App = {
     })
   }, 
 
+  // adds ERC20 token into Exchange on managetoken.html
   addTokenToExchange: function() {
     var nameOfToken = document.getElementById("inputTokenAddExchange").value;
     var addressOfToken = document.getElementById("inputNameAddExchange").value;
@@ -494,6 +509,7 @@ window.App = {
     })
   },
 
+  // deposit tokens into Exchange on index.html
   depositTokenIntoExchange: function() {
     var self = this;
 
@@ -516,6 +532,7 @@ window.App = {
     })
   },
 
+  // deposit ether into Exchange on index.html
   depositEtherIntoExchange: function() {
     var self = this;
 
@@ -537,6 +554,7 @@ window.App = {
     })
   }, 
 
+  // withdraw token(s) from Exchange on index.html
   withdrawTokenFromExchange: function() {
     var self = this;
 
@@ -559,6 +577,7 @@ window.App = {
     })
   },
 
+  // withdraw Ether from Exchange on index.html
   withdrawEthFromExchange: function() {
     var self = this;
 
@@ -580,6 +599,7 @@ window.App = {
     })
   }, 
 
+  // buy token on Exchange on trading.html
   buyToken: function() {
     var self = this;
 
@@ -608,6 +628,7 @@ window.App = {
     })
   },
 
+  // sell token on Exchange on trading.html
   sellToken: function() {
     var self = this;
 
@@ -636,6 +657,7 @@ window.App = {
     })
   },
 
+  // display outstanding buy and sell orders on trading.html
   updateOrderBook: function() {
     var exchangeInstance;
 

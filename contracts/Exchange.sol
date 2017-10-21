@@ -66,7 +66,7 @@ contract Exchange is owned {
 	event test(uint test);
 	
 
-	// desposit ether into exchange
+	// deposit ether into exchange
 	function depositEther() payable {
 		require(balanceEthForAddress[msg.sender] + msg.value >= balanceEthForAddress[msg.sender]);
 		balanceEthForAddress[msg.sender] += msg.value;
@@ -131,7 +131,7 @@ contract Exchange is owned {
 	}
 
 
-	// desposit token in exchange
+	// deposit token in exchange
 	function depositToken(string symbolName, uint amount) {
 		uint8 symbolIndex = getSymbolIndex(symbolName);
 		require(symbolIndex > 0);
@@ -235,7 +235,7 @@ contract Exchange is owned {
 		return (arrPricesSell, arrVolumesSell);
 	}
 
-	// new order - bid order
+	// create a new buy order for token
 	function buyToken(string symbolName, uint priceInWei, uint amount) {
 		uint8 symbolIndex = getSymbolIndex(symbolName);
 		require(symbolIndex > 0);
@@ -313,6 +313,7 @@ contract Exchange is owned {
 		}
 	}
 
+	// adds buy order to buy order book if no matching sell order is found
 	function addBuyOffer(uint8 symbolIndex, uint priceInWei, uint amount, address who)  internal {
 		tokens[symbolIndex].buyBook[priceInWei].offers_length++;	
 		tokens[symbolIndex].buyBook[priceInWei].offers[tokens[symbolIndex].buyBook[priceInWei].offers_length] = Offer(amount, who);
@@ -369,7 +370,7 @@ contract Exchange is owned {
 
 	}
 
-	// new order - ask order
+	// create a sell order for token
 	function sellToken(string symbolName, uint priceInWei, uint amount) {
 		uint8 symbolIndex = getSymbolIndex(symbolName);
 		require(symbolIndex > 0);
@@ -448,6 +449,7 @@ contract Exchange is owned {
 		}
 	}
 
+	// adds sell order to sell order book if no matching buy order is found
 	function addSellOffer(uint8 symbolIndex, uint priceInWei, uint amount, address who) internal {
 		tokens[symbolIndex].sellBook[priceInWei].offers_length++;
 		tokens[symbolIndex].sellBook[priceInWei].offers[tokens[symbolIndex].sellBook[priceInWei].offers_length] = Offer(amount, who);
@@ -502,6 +504,7 @@ contract Exchange is owned {
 		}
 	}
 
+	// cancel a buy or sell order
 	function cancelOrder(string symbolName, bool isSellOrder, uint priceInWei, uint offerKey) {
 		uint8 symbolIndex = getSymbolIndex(symbolName);
 		require(symbolIndex > 0);

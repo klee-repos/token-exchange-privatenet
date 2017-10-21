@@ -7,6 +7,6 @@ This demo provides examples of the following:
 This demo should be used with:
 * Truffle Framework
 * Testrpc or private net Ethereum blockchain
-* Bootsrap
+* Bootstrap
 * Metamask, Mist, or other Dapp-enabled browser.
 
