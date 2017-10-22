@@ -3,12 +3,12 @@
 
 ### This demo provides examples of the following:
 * Create an ERC20 Token (https://github.com/ethereum/EIPs/issues/20)
-* Create an Token Exchange on the Ethereum blockchain to allow for the exchange of an ERC20 token for Ether
+* Create a Token Exchange on the Ethereum blockchain to allow for the exchange of ERC20 token(s) for Ether
 
 ### This demo should be used with:
 * Truffle Framework with Webpack and Bootstrap
 * Testrpc or private net Ethereum blockchain
-* Metamask, Mist, or other Dapp-enabled browser.
+* Metamask, Mist, or other Dapp-enabled browser
 
 
 
